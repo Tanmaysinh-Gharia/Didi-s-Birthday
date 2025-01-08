@@ -28,10 +28,15 @@ const animationTimeline = () => {
     textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
         .split("")
         .join("</span><span>")}</span>`;
-
-    hbd.innerHTML = `<span>${hbd.innerHTML
-        .split("")
-        .join("</span><span>")}</span>`;
+    const all = hbd.innerHTML.split("");
+    inner_text = "<span>";
+    all.forEach(elem => {
+        if(elem==" ")
+            elem = "&nbsp;";
+        inner_text +=  elem +  "</span><span>";
+    });
+    inner_text = inner_text + "</span>";
+    hbd.innerHTML = inner_text;
 
     const ideaTextTrans = {
         opacity: 0,
